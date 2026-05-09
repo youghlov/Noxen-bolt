@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { PButton } from '@porsche-design-system/components-react';
 import Particles from './Particles';
+import HeroVideo from './HeroVideo';
 
 const TITLE = 'Digital Experiences Premium';
 
@@ -84,18 +85,8 @@ export default function Hero() {
         background: '#0A0A0A',
       }}
     >
-      {/* Background image with parallax */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'url(/hero-bg.webp)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: `translateY(${parallaxY * 0.3}px)`,
-          transition: 'transform 0.05s linear',
-        }}
-      />
+      {/* Interactive video background */}
+      <HeroVideo />
 
       {/* Top gradient overlay (black fade) */}
       <div
