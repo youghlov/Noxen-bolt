@@ -1,9 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import { PButton } from '@porsche-design-system/components-react';
+import { PButton, PIcon } from '@porsche-design-system/components-react';
 import Particles from './Particles';
 import HeroVideo from './HeroVideo';
 
-const TITLE = 'The Digital Experiences ';
+const TITLE = 'Digital Experiences';
+
+const SERVICES = [
+  { icon: 'palette', label: 'Brand Identity' },
+  { icon: 'edit', label: 'Digital Design' },
+  { icon: 'globe', label: 'Immersive Web' },
+  { icon: 'image', label: 'Visual Production' },
+  { icon: 'brain', label: 'AI Integration' },
+];
 
 export default function Hero() {
   const [revealed, setRevealed] = useState<boolean[]>([]);
@@ -304,6 +312,7 @@ export default function Hero() {
           style={{
             display: 'inline-block',
             transition: 'transform 0.3s cubic-bezier(0.25,0.1,0.25,1)',
+            marginBottom: '60px',
           }}
         >
           <PButton
@@ -315,10 +324,80 @@ export default function Hero() {
           </PButton>
         </a>
 
+        {/* Service icons grid */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 'clamp(12px, 3vw, 28px)',
+            flexWrap: 'wrap',
+            marginBottom: '80px',
+            maxWidth: '600px',
+            margin: '0 auto 80px',
+          }}
+        >
+          {SERVICES.map((service) => (
+            <div
+              key={service.label}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+            >
+              <div
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(176,176,176,0.2)',
+                  backgroundColor: 'rgba(176,176,176,0.05)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = 'rgba(176,176,176,0.5)';
+                  el.style.backgroundColor = 'rgba(176,176,176,0.15)';
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = 'rgba(176,176,176,0.2)';
+                  el.style.backgroundColor = 'rgba(176,176,176,0.05)';
+                }}
+              >
+                <PIcon
+                  name={service.icon as any}
+                  theme="dark"
+                  size="large"
+                  aria-label={service.label}
+                />
+              </div>
+              <span
+                style={{
+                  fontSize: '11px',
+                  color: '#4a4a4a',
+                  letterSpacing: '0.5px',
+                  textTransform: 'uppercase',
+                  textAlign: 'center',
+                  lineHeight: 1.3,
+                  maxWidth: '70px',
+                }}
+              >
+                {service.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
         {/* Scroll indicator */}
         <div
           style={{
-            marginTop: '80px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
