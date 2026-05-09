@@ -259,8 +259,7 @@ export default function Hero() {
                 transform: revealed[i] ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'opacity 0.4s ease, transform 0.4s ease',
                 whiteSpace: char === ' ' ? 'pre' : 'normal',
-                color: i < 7 ? '#FAFAFA' : 'transparent',
-                WebkitTextStroke: i >= 7 ? '1px rgba(176,176,176,0.5)' : undefined,
+                color: '#FAFAFA',
               }}
             >
               {char}
