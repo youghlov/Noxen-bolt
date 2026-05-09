@@ -3,7 +3,7 @@ import { PButton } from '@porsche-design-system/components-react';
 import Particles from './Particles';
 import HeroVideo from './HeroVideo';
 
-const TITLE = 'Digital Experiences ';
+const TITLE = 'The Digital Experiences ';
 
 export default function Hero() {
   const [revealed, setRevealed] = useState<boolean[]>([]);
