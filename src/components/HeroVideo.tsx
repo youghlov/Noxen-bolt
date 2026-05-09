@@ -14,6 +14,7 @@ export default function HeroVideo() {
           height: '100%',
           objectFit: 'cover',
           objectPosition: 'center',
+          filter: 'grayscale(100%) contrast(1.2) brightness(0.85)',
         }}
       >
         <source
